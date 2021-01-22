@@ -1,32 +1,27 @@
-![](https://i.imgur.com/3VycXrp.png)
-#
+![Improved jerma imposter message generator](sus!!!.png)
 
-Generate your very own jerma sus imposter message.
+A modified version of
+[aechaechaech's jerma imposter message generator](https://github.com/aechaechaech/Jerma-Imposter-Message-Generator)
+which is used to cut and splice the popular jerma "When the imposter is sus!😳" meme into any message.
 
+# usage
 
-# Modes:
+this version is designed to be used by other python scripts. the main function is `sus.sus()`. it takes a string (the
+message) and returns the randomly generated filename of the output image. the filename is generated
+using `sus.temp_file()` and by default outputs a png to the working directory, but this can be changed.
 
-- **Default Mode**: Only supports the characters " ", !, a, b, c, d, e, h, i, m, n, o, p, q, r, s, t, u, w and 😳
-- **Cheater Mode**: Theoretically supports all characters, works by selecting a random slice of jerma's face then writing a letter above it
-- **Cypher Mode**: No letters, only barcode. One of the strongest encryption methods on the planet
+# changes
 
-# Installation
-1. Download [this zip file](https://drive.google.com/file/d/1DGZ5i8UkFP7BW_cOeKnoinhWZW7ORClt/view?usp=sharing) and extract it
-2. I think you have to install the [Microsoft Visual C++ 2008 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=29) although tbh I'm not sure if this is necesary
+- lives in a function instead of a standalone file
+- fixes issue where output image can be too big or too small due to assuming all letters are the same size
+- input string is no longer case sensitive
+- duplicate letters are chosen in a repeating pattern instead of randomly, this allows the original image to be
+  reconstructed from the original text.
+- modes are removed, always on non-cypher and cheat mode.
+- chooses a random slice for any "cheat mode" letters ONCE, and uses the same slice for the same letter for the rest of
+  the image.
+- the size of "cheat mode" letters is determined based on the size of the letter, instead of a fixed size.
 
-# Usage
-1. Open up a command prompt/terminal wherever you downloaded the main.py file
-2. Run ```python main.py```
-3. Enter your message and parameters then watch the freaking magic happen baby
+# but why though
 
-Note: to use "😳" enter ```:flushed:``` into the message input.
-
-# Building
-1. Download repository
-2. Run ```pip install Pillow py2exe```
-3. Run ```python build.py py2exe``` in repository folder
-4. Move ```arial.ttf``` and ```imposter.jpg``` into ```dist/```
-5. To run the program, run main.exe in ```dist/```
-
-
-![](https://i.imgur.com/txRMUHa.gif)
+I'm implementing this code into a discord bot i'm working on and i might as well publish the changes i made
